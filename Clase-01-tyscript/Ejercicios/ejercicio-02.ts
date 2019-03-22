@@ -1,5 +1,6 @@
-let Cubo = function(num:number):number{
+/* let Cubo = function(num:number):number{
         return num*num*num;
-}
+} */
 
-console.log(Cubo(4));
+let Cubo = (num:number):number => num*num*num;
+console.log(Cubo(2));
