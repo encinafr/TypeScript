@@ -30,7 +30,7 @@ var Empleados;
             return this._sexo;
         };
         Persona.prototype.ToString = function () {
-            return this._nombre + "-" + this._apellido + "-" + this._sexo + "-" + this._dni;
+            return this.GetNombre() + "-" + this.GetApellido() + "-" + this.GetSexo() + "-" + this.GetDni();
         };
         return Persona;
     }());
@@ -57,13 +57,21 @@ var Empleados;
             return "El empleado habla el idioma:" + idioma;
         };
         Empleados.prototype.ToString = function () {
-            return _super.prototype.ToString.call(this) + "-" + this._legajo + "-" + this._sueldo;
+            return _super.prototype.ToString.call(this) + "-" + this.GetLegajo() + "-" + this.GetSueldo();
         };
         return Empleados;
     }(Empleados_1.Persona));
     Empleados_1.Empleados = Empleados;
 })(Empleados || (Empleados = {}));
 /// <reference path="Empleado.ts" />
-var emp = new Empleados.Empleados(123, 1000, "Manito", "Larga", 12334, "Masculino");
-console.log(emp.ToString());
-console.log(emp.Hablar("Ingles"));
+function Click() {
+    var nombre = document.getElementById("nombre").value;
+    var apellido = document.getElementById("apellido").value;
+    var sexo = document.getElementById("sexo").value;
+    var dni = parseInt(document.getElementById("dni").value);
+    var legajo = parseInt(document.getElementById("legajo").value);
+    var sueldo = parseInt(document.getElementById("sueldo").value);
+    var emp = new Empleados.Empleados(legajo, sueldo, nombre, apellido, dni, sexo);
+    alert(emp.ToString());
+    alert(emp.Hablar("Ingles"));
+}
