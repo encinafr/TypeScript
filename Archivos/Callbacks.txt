@@ -1,0 +1,21 @@
+Podria difinirse como pasar una función como parámetro para que dicha función se encargue de ejecutar nuestro parámetro.
+Ejemplo con sos cajas de texto y el evento click 
+
+<input type="text" id="a" />
+<input type="text" id="b" />
+<button id="operar">
+    Sumar
+</button>
+
+function Sumar(a, b, callback){
+    return callback(a+b);
+}
+
+document.querySelector("#operar").addEventListener('click', function(){
+    var a = parseInt(document.querySelector("#a").value),
+        b = parseInt(document.querySelector("#b").value);
+
+    Sumar(a, b, function(r){
+        console.log('El resultado es ' + r);
+    })
+})
